@@ -29,10 +29,20 @@
     color: white;
  }
 
+ /* when link is active  */
  .active-link {
     background-color: blue;
     color: white;
  }
+
+ /* sticky class 
+  */
+  .sticky {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+  }
 
  /* section  */
  .section {
