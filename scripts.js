@@ -18,4 +18,36 @@ navParent.addEventListener("click", (e) => {
 })
 
 
+// const initialCord = document.querySelector(".section-projects").getBoundingClientRect()
 // sticky navigation code 
+// window.addEventListener("scroll", (e) => {
+//     if(window.scrollY > initialCord.top) {
+//         // add sticky class 
+//         navParent.classList.add("sticky")
+//     }
+//     else {
+//         navParent.classList.remove("sticky")
+//     }
+// })
+
+const navHeight = document.querySelector(".nav-bar").getBoundingClientRect().height
+let options = {
+    root: null,
+    threshold: "0",
+    rootMargin: `-${navHeight}px`,
+}
+
+const stickyNavbar = (entries) => {
+    if(!entries[0].isIntersecting) {
+        navParent.classList.add("sticky")
+    }
+    else {
+        navParent.classList.remove("sticky")
+    }
+    console.log(entries)
+    console.log("intersecting")
+}
+
+let observer = new IntersectionObserver(stickyNavbar, options)
+const target = document.querySelector(".section-home")
+observer.observe(target)
